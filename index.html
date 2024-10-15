@@ -3,34 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cadastrar</title>
+    <title>Registro de Presença</title>
     <style>
         body {
             font-family: Arial, sans-serif;
-            margin: 20px;
-        }
-        form {
-            max-width: 600px;
-            margin: 0 auto;
-        }
-        label {
-            display: block;
-            margin-bottom: 8px;
-            font-weight: bold;
-        }
-        input, select {
-            width: 100%;
-            padding: 8px;
-            margin-bottom: 10px;
-            border: 1px solid #ddd;
-            border-radius: 4px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f5f5f5;
         }
         button {
-            padding: 10px 20px;
+            padding: 15px 30px;
+            margin: 10px;
+            font-size: 16px;
+            cursor: pointer;
             background-color: #007BFF;
             color: white;
             border: none;
-            cursor: pointer;
+            border-radius: 5px;
         }
         button:hover {
             background-color: #0056b3;
@@ -39,41 +31,9 @@
 </head>
 <body>
 
-<h2>Formulário de Cadastro</h2>
-
-<form id="cadastroForm">
-    <label for="nome">Nome:</label>
-    <input type="text" id="nome" name="nome" required>
-
-    <label for="funcao">Função:</label>
-    <select id="funcao" name="funcao" required>
-        <option value="Lider">Líder</option>
-        <option value="Colaborador">Colaborador</option>
-    </select>
-
-    <div id="liderField" style="display:none;">
-        <label for="lider">Nome do Líder:</label>
-        <input type="text" id="lider" name="lider">
-    </div>
-
-    <label for="contato">Contato:</label>
-    <input type="text" id="contato" name="contato" required>
-
-    <label for="endereco">Endereço:</label>
-    <input type="text" id="endereco" name="endereco" required>
-
-    <label for="titulo">Título:</label>
-    <input type="text" id="titulo" name="titulo" required>
-
-    <label for="zona">Zona:</label>
-    <input type="text" id="zona" name="zona" required>
-
-    <label for="secao">Seção:</label>
-    <input type="text" id="secao" name="secao" required>
-
-    <button type="submit">Cadastrar</button>
-</form>
-
+<h2>Selecione uma opção</h2>
+<button onclick="window.location.href='src/paginas/cadastrar.html'">Cadastrar</button>
+<button onclick="window.location.href='src/paginas/registrarPresenca.html'">Registrar Presença</button>
 
 </body>
 </html>
