@@ -105,7 +105,12 @@
                     'Content-Type': 'application/json'
                 }
             })
-                .then(response => response.json())
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Erro na requisição');
+                    }
+                    return response.json();
+                })
                 .then(data => {
                     console.log('Sucesso:', data); // Verificar a resposta no console
                     alert(data.message);           // Mostrar o alerta com a resposta da função serverless
@@ -115,6 +120,7 @@
                     alert('Ocorreu um erro ao tentar cadastrar. Verifique a função.');
                 });
         });
+
     </script>
 
 </body>

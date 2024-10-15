@@ -1,7 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 
-exports.handler = async function(event) {
+exports.handler = async function (event) {
     const data = JSON.parse(event.body);
 
     // Caminho onde o arquivo CSV será salvo
@@ -19,6 +19,7 @@ exports.handler = async function(event) {
     // Escrever no arquivo CSV
     fs.appendFileSync(filePath, linha);
 
+    console.log('Cadastro realizado com sucesso, enviando resposta...');
     return {
         statusCode: 200,
         body: JSON.stringify({ message: 'Cadastro realizado com sucesso!' }),
