@@ -4,10 +4,11 @@ const path = require('path');
 exports.handler = async function(event) {
     const data = JSON.parse(event.body);
 
-    // Verificar se o arquivo CSV já existe, se não, cria com o cabeçalho
+    // Caminho onde o arquivo CSV será salvo
     const filePath = path.join(__dirname, 'cadastros.csv');
     const headers = 'Nome,Função,Contato,Endereço,Título,Zona,Seção,Líder\n';
-    
+
+    // Verificar se o arquivo CSV já existe, se não, cria com o cabeçalho
     if (!fs.existsSync(filePath)) {
         fs.writeFileSync(filePath, headers);
     }

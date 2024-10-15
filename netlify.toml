@@ -1,11 +1,7 @@
 [build]
-  # Diretório onde estão as funções serverless
-  functions = "src/functions"
+  functions = "src/functions"   # Caminho para a pasta onde estão as funções serverless
+  publish = "."                 # Diretório de publicação (a raiz do projeto)
 
-  # Diretório onde estão os arquivos a serem publicados (raiz)
-  publish = "."
-
-# Configurações de redirecionamento para as funções serverless
 [[redirects]]
   from = "/api/*"
   to = "/.netlify/functions/:splat"
