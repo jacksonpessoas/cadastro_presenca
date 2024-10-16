@@ -51,8 +51,8 @@
 </form>
 
 <script>
-    // Carregar os nomes cadastrados
-    fetch('/api/nomes')
+    // Carregar os nomes cadastrados da função serverless
+    fetch('/.netlify/functions/carregar-nomes') // Verifique o nome correto da função
         .then(response => response.json())
         .then(data => {
             const select = document.getElementById('nome');
@@ -62,21 +62,32 @@
                 option.textContent = nome;
                 select.appendChild(option);
             });
+        })
+        .catch(error => {
+            console.error('Erro ao carregar nomes:', error);
+            alert('Erro ao carregar nomes.');
         });
 
     document.getElementById('presencaForm').addEventListener('submit', function(event) {
         event.preventDefault();
 
         const formData = new FormData(this);
-        fetch('/api/registrar-presenca', {
+        fetch('/.netlify/functions/registrar-presenca', {
             method: 'POST',
             body: JSON.stringify(Object.fromEntries(formData)),
             headers: {
                 'Content-Type': 'application/json'
             }
-        }).then(response => response.json())
-          .then(data => alert(data.message))
-          .catch(error => console.error('Erro ao registrar presença:', error));
+        })
+        .then(response => response.json())
+        .then(data => {
+            // Mostrar o alerta de sucesso após a presença ser registrada
+            alert('Presença registrada com sucesso!');
+        })
+        .catch(error => {
+            console.error('Erro ao registrar presença:', error);
+            alert('Ocorreu um erro ao registrar presença.');
+        });
     });
 </script>
 
